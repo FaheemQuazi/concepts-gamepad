@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title>GPOverlay - FDQ</title>
+        <style>
+            html {
+                background-color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="https://d3js.org/d3.v6.min.js"></script>
+        <script>
+
+            const AXIS_SCALE = d3.scaleLinear().domain([-1,1]).range([-10,10]).clamp(true);
+            const BTN_SCALE = d3.scaleLinear().domain([0,1]).range([1,0.2]).clamp(true);
+            const TRIG_SCALE = d3.scaleLinear().domain([0,1]).range([0.12, 0.99]).clamp(true);
+
+            var gpUpdate = null;
+            var gpSvg = null;
+
+            function gamepadChecker() {
+                const gp = navigator.getGamepads()[0];
+                gpSvg.select("g#axis-ls").attr("transform", "translate(" + AXIS_SCALE(gp.axes[0]) + "," + AXIS_SCALE(gp.axes[1]) + ")");
+                gpSvg.select("g#axis-rs").attr("transform", "translate(" + AXIS_SCALE(gp.axes[2]) + "," + AXIS_SCALE(gp.axes[3]) + ")");
+                let btn = gp.buttons;
+                for (let i = 0; i < btn.length; i++) {
+                    let selb = gpSvg.select("#btn-" + i);
+                    if (selb.size() > 0) {
+                        if (selb.classed("trig")) {
+                            let grads = gpSvg.select("linearGradient#grad-" + i);
+                            if (grads.size() > 0) {
+                                let offset = 0;
+                                grads.selectAll("stop").each(function(d) {
+                                    d3.select(this).attr("offset", TRIG_SCALE(btn[i].value) + offset);
+                                    offset += 0.003;
+                                });
+                            } else {
+                                selb.style("opacity", BTN_SCALE(btn[i].value));
+                            }
+                        } else {
+                            selb.style("opacity", BTN_SCALE(btn[i].value));
+                        }
+                         
+                    }
+                }
+            }
+
+            window.addEventListener("gamepadconnected", (e) => {
+                if (gpUpdate === null ) {
+                    gpUpdate = undefined;
+                    console.log("Gamepad connected at index %d: %s. %d buttons, %d axes.",
+                        e.gamepad.index, e.gamepad.id,
+                        e.gamepad.buttons.length, e.gamepad.axes.length);
+
+                    d3.xml("xbone.svg")
+                        .then((data) => {
+                            d3.select("body").node().append(data.documentElement)
+                        }).then(() => {
+                            gpSvg = d3.select("svg");
+                            gpUpdate = setInterval(gamepadChecker, 1000/30);
+                        });
+                }
+            });
+
+            window.addEventListener('gamepaddisconnected', event => {
+                console.log('Lost connection with the gamepad.');
+                clearInterval(gpUpdate);
+                gpUpdate = null;
+                gpSvg.remove();
+            });
+        </script>
+    </body>
+</html>
