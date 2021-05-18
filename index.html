@@ -22,6 +22,8 @@
             const AXIS_SCALE = d3.scaleLinear().domain([-1,1]).range([-10,10]).clamp(true);
             const BTN_SCALE = d3.scaleLinear().domain([0,1]).range([1,0.2]).clamp(true);
             const TRIG_SCALE = d3.scaleLinear().domain([0,1]).range([0.12, 0.99]).clamp(true);
+            const URL_PARAMS = new URLSearchParams(window.location.search);
+            const URL_FORCE_LAYOUT = URL_PARAMS.get('layout');
 
             var gpUpdate = null;
             var gpSvg = null;
@@ -56,9 +58,9 @@
             window.addEventListener("gamepadconnected", (e) => {
                 if (gpUpdate === null ) {
                     gpUpdate = undefined;
-                    let layout = CONTROLLER_MAPPING[e.gamepad.id];
+                    let layout = (URL_FORCE_LAYOUT !== null) ? URL_FORCE_LAYOUT : CONTROLLER_MAPPING[e.gamepad.id];
 
-                    d3.xml("layouts/" + ((layout === undefined) ? "xbone.svg" : layout))
+                    d3.xml("layouts/" + ((layout === undefined) ? "xbone.svg" : (layout + ".svg")))
                         .then((data) => {
                             d3.select("body").node().append(data.documentElement)
                             if (layout === undefined) 

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="-5 -5 250 110" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+    <defs>
+        <linearGradient id="grad-6" bx:pinned="true">
+            <title>btn-6</title>
+            <stop offset="0.12" style="stop-color: rgb(255, 255, 255);"/>
+            <stop offset="0.123" style=""/>
+        </linearGradient>
+    </defs>
+    <g transform="matrix(0.993016, 0, 0, 0.993016, -341.155579, -80.645401)" id="btn-14">
+        <title>btn-l</title>
+        <circle style="stroke-width: 3px; fill: rgb(208, 66, 66); stroke: rgb(255, 255, 255);" cx="381.563" cy="105.905" r="11.211">
+            <title>s-b</title>
+        </circle>
+    </g>
+    <g transform="matrix(0.993016, 0, 0, 0.993016, -310.890167, -78.765884)" id="btn-13">
+        <title>btn-l</title>
+        <circle style="stroke-width: 3px; fill: rgb(208, 66, 66); stroke: rgb(255, 255, 255);" cx="381.563" cy="105.905" r="11.211">
+            <title>s-b</title>
+        </circle>
+    </g>
+    <g transform="matrix(0.993016, 0, 0, 0.993016, -280.624756, -67.080772)" id="btn-15">
+        <title>btn-l</title>
+        <circle style="stroke-width: 3px; fill: rgb(208, 66, 66); stroke: rgb(255, 255, 255);" cx="381.563" cy="105.905" r="11.211">
+            <title>s-b</title>
+        </circle>
+    </g>
+    <g transform="matrix(0.993016, 0, 0, 0.993016, -265.509496, -20.032799)" id="btn-12">
+        <title>btn-l</title>
+        <circle style="stroke-width: 3px; fill: rgb(208, 66, 66); stroke: rgb(255, 255, 255);" cx="381.563" cy="105.905" r="11.211">
+            <title>s-b</title>
+        </circle>
+    </g>
+    <g transform="matrix(0.993016, 0, 0, 0.993016, -251.97937, -79.073387)" id="btn-2">
+        <title>btn-l</title>
+        <circle style="stroke-width: 3px; stroke: rgb(208, 66, 66); fill: rgb(255, 255, 255);" cx="381.563" cy="105.905" r="11.211">
+            <title>s-b</title>
+        </circle>
+    </g>
+    <g transform="matrix(0.993016, 0, 0, 0.993016, -254.439392, -50.168098)" id="btn-0">
+        <title>btn-l</title>
+        <circle style="stroke-width: 3px; stroke: rgb(208, 66, 66); fill: rgb(255, 255, 255);" cx="381.563" cy="105.905" r="11.211">
+            <title>s-b</title>
+        </circle>
+    </g>
+    <g transform="matrix(0.993016, 0, 0, 0.993016, -226.456635, -56.933167)" id="btn-1">
+        <title>btn-l</title>
+        <circle style="stroke-width: 3px; stroke: rgb(208, 66, 66); fill: rgb(255, 255, 255);" cx="381.563" cy="105.905" r="11.211">
+            <title>s-b</title>
+        </circle>
+    </g>
+    <g transform="matrix(0.993016, 0, 0, 0.993016, -225.226608, -83.993439)" id="btn-3">
+        <title>btn-l</title>
+        <circle style="stroke-width: 3px; stroke: rgb(208, 66, 66); fill: rgb(255, 255, 255);" cx="381.563" cy="105.905" r="11.211">
+            <title>s-b</title>
+        </circle>
+    </g>
+    <g transform="matrix(0.993016, 0, 0, 0.993016, -197.858841, -84.300934)" id="btn-5">
+        <title>btn-l</title>
+        <circle style="stroke-width: 3px; stroke: rgb(208, 66, 66); fill: rgb(255, 255, 255);" cx="381.563" cy="105.905" r="11.211">
+            <title>s-b</title>
+        </circle>
+    </g>
+    <g transform="matrix(0.993016, 0, 0, 0.993016, -170.491074, -80.610893)" id="btn-4">
+        <title>btn-l</title>
+        <circle style="stroke-width: 3px; stroke: rgb(208, 66, 66); fill: rgb(255, 255, 255);" cx="381.563" cy="105.905" r="11.211">
+            <title>s-b</title>
+        </circle>
+    </g>
+    <g transform="matrix(0.993016, 0, 0, 0.993016, -199.396332, -56.933167)" id="btn-7">
+        <title>btn-l</title>
+        <circle style="stroke-width: 3px; stroke: rgb(208, 66, 66); fill: rgb(255, 255, 255);" cx="381.563" cy="105.905" r="11.211">
+            <title>s-b</title>
+        </circle>
+    </g>
+    <g transform="matrix(0.993016, 0, 0, 0.993016, -171.721085, -52.935627)" id="btn-6">
+        <title>btn-l</title>
+        <circle style="stroke-width: 3px; stroke: rgb(208, 66, 66); fill: rgb(255, 255, 255);" cx="381.563" cy="105.905" r="11.211">
+            <title>s-b</title>
+        </circle>
+    </g>
+</svg>
