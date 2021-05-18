@@ -2,12 +2,20 @@
     <head>
         <title>GPOverlay - FDQ</title>
         <style>
-            html {
+            body {
                 background-color: black;
+            }
+            #nomapping {
+                color: white;
+                display: none;
+                text-align: center;
+                opacity: 0;
             }
         </style>
     </head>
     <body>
+        <div id="nomapping">No layout defined for your controller (yet)! Defaulting to Xbox...</div>
+        <script src="mapping.js"></script>
         <script src="https://d3js.org/d3.v6.min.js"></script>
         <script>
 
@@ -48,13 +56,17 @@
             window.addEventListener("gamepadconnected", (e) => {
                 if (gpUpdate === null ) {
                     gpUpdate = undefined;
-                    console.log("Gamepad connected at index %d: %s. %d buttons, %d axes.",
-                        e.gamepad.index, e.gamepad.id,
-                        e.gamepad.buttons.length, e.gamepad.axes.length);
+                    let layout = CONTROLLER_MAPPING[e.gamepad.id];
 
-                    d3.xml("xbone.svg")
+                    d3.xml("layouts/" + ((layout === undefined) ? "xbone.svg" : layout))
                         .then((data) => {
                             d3.select("body").node().append(data.documentElement)
+                            if (layout === undefined) 
+                                d3.select("#nomapping").style("display", "block")
+                                    .transition().duration(1000).style("background-color", "rgb(150,10,10)").style("opacity", 1)
+                                    .transition().delay(250).duration(1000).style("background-color", "rgba(0,0,0,0)")
+                                    .transition().delay(1500).duration(1000).style("opacity", 0)
+                                    .transition().style("display", "none");
                         }).then(() => {
                             gpSvg = d3.select("svg");
                             gpUpdate = setInterval(gamepadChecker, 1000/30);
@@ -63,7 +75,6 @@
             });
 
             window.addEventListener('gamepaddisconnected', event => {
-                console.log('Lost connection with the gamepad.');
                 clearInterval(gpUpdate);
                 gpUpdate = null;
                 gpSvg.remove();
